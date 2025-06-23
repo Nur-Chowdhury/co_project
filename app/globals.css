@@ -1,42 +1,43 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import 'swiper/css';
+@import 'swiper/css/pagination';
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  body {
+    @apply bg-white dark:bg-black text-black dark:text-white leading-loose ;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out; 
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+.swiper {
+  overflow: visible;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.glass{
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border:1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease-in-out;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.dark .glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.3);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.glass:hover {
+    backdrop-filter: blur(2px) saturate(180%);
+    background: rgba(255, 255, 255, 0.4);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.dark .glass:hover{
+  backdrop-filter: blur(2px) saturate(180%);
+  background: rgba(0, 0, 0, 0.8);
 }
