@@ -87,7 +87,7 @@ export default function Reviews() {
 
 
     return (
-        <div className="relative w-full px-4 md:px-20 py-12">
+        <div className="relative w-full px-4 md:px-20 py-12 overflow-hidden">
             <div className="text-center mb-10">
                 <h2 className="text-2xl md:text-3xl font-bold mb-2">EXCELLENT</h2>
                 <div className="flex justify-center items-center gap-1 text-yellow-400 text-2xl">
