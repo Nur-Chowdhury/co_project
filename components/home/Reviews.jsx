@@ -1,13 +1,11 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import ReviewCard from "./ReviewCard";
-import { useRef } from "react";
+import React from "react";
+import Slider from 'react-slick';
 
 const reviews = [
     {
@@ -54,9 +52,39 @@ const reviews = [
     },
 ];
 
-export default function Reviews() {
+const NextArrow = (props) => (
+  <div className=" hidden lg:block absolute z-10 -right-10 top-1/2 transform -translate-y-1/2 cursor-pointer text-blue-600 hover:text-blue-800 transition-all duration-300 hover:scale-110" onClick={props.onClick}>
+    <MdOutlineKeyboardArrowRight size={40} />
+  </div>
+);
 
-    const swiperRef = useRef(null);
+const PrevArrow = (props) => (
+  <div className=" hidden lg:block absolute z-10 -left-10 top-1/2 transform -translate-y-1/2 cursor-pointer text-blue-600 hover:text-blue-800 transition-all duration-300 hover:scale-110" onClick={props.onClick}>
+    <MdOutlineKeyboardArrowLeft size={40} />
+  </div>
+);
+
+export default function Reviews() {
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 800,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        arrows: true,
+        pauseOnHover: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
+        responsive: [
+            { breakpoint: 500, settings: { slidesToShow: 1 } },
+            { breakpoint: 640, settings: { slidesToShow: 2 } },
+            { breakpoint: 930, settings: { slidesToShow: 3 } },
+            { breakpoint: 1200, settings: { slidesToShow: 4 } },
+        ],
+    };
+
 
     return (
         <div className="relative w-full px-4 md:px-20 py-12">
@@ -72,32 +100,13 @@ export default function Reviews() {
                 </p>
                 <FcGoogle className="mx-auto mt-2 text-4xl" />
             </div>
-            <Swiper
-                modules={[Navigation, Autoplay]}
-                spaceBetween={20}
-                slidesPerView={1}
-                breakpoints={{
-                    640: { slidesPerView: 1.5 },
-                    768: { slidesPerView: 2 },
-                    1024: { slidesPerView: 3 },
-                    1280: { slidesPerView: 4 },
-                }}
-                autoplay={{ delay: 5000 }}
-                loop={true}
-                onSwiper={(swiper) => (swiperRef.current = swiper)}
-                navigation
-            >
+            <Slider {...settings}>
                 {reviews.map((r, i) => (
-                    <SwiperSlide key={i}>
-                        <div
-                            onMouseEnter={() => swiperRef.current?.autoplay?.stop()}
-                            onMouseLeave={() => swiperRef.current?.autoplay?.start()}
-                        >
-                            <ReviewCard review={r} />
-                        </div>
-                    </SwiperSlide>
+                    <div key={i} className=" px-2">
+                        <ReviewCard review={r} />
+                    </div>
                 ))}
-            </Swiper>
+            </Slider>
         </div>
     )
 }

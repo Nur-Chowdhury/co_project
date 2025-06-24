@@ -1,5 +1,7 @@
 @import 'swiper/css';
 @import 'swiper/css/pagination';
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
 
 @tailwind base;
 @tailwind components;
@@ -40,4 +42,23 @@
 .dark .glass:hover{
   backdrop-filter: blur(2px) saturate(180%);
   background: rgba(0, 0, 0, 0.8);
+}
+
+.slick-dots {
+    position: absolute !important;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+}
+
+.slick-dots li button:before {
+  font-size: 10px;
+  color: rgba(122, 169, 228, 0.4) !important; 
+  opacity: 1;
+}
+
+.slick-dots li.slick-active button:before {
+  color: rgb(37 99 235) !important;
+  opacity: 1;
 }

@@ -10,7 +10,7 @@ export default function ReviewCard({ review }) {
     const isLong = review.text.length > 100;
     const previewText = review.text.slice(0, 100);
     return (
-        <div className="my-[10px] bg-gray-200 dark:bg-gray-800 rounded-lg shadow p-4 h-full flex flex-col justify-between min-h-[200px]
+        <div className="my-[10px] bg-gray-200 dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-700 p-4 h-[250px] flex flex-col justify-between min-h-[200px]
             z-[10000] transition-all duration-300 transform hover:-translate-y-2">
             {/* Header */}
             <div className="flex justify-between items-start">
