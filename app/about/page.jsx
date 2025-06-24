@@ -13,7 +13,7 @@ export default function page() {
                 <div className=' h-[2px] w-[180px] bg-blue-500 mb-4'></div>
             </div>
             <div className=' my-6 grid grid-cols-1 md:grid-cols-2 gap-12'>
-                <div className=' order-2 md:order-1 flex flex-col gap-5'>
+                <div className=' order-2 md:order-1 flex flex-col gap-6'>
                     <p >
                         Ali & Co Accountants is a mid-sized accounting and advisory firm specialising in helping small and medium-sized businesses. 
                         Our goal is to be a trusted partner in your business, supporting you in achieving your goals and maximizing success. 
@@ -25,7 +25,7 @@ export default function page() {
                          by listening to your needs and delivering results. We work closely with you to provide tailored solutions that drive your 
                          business forward.
                     </p>
-                    <div className=' mt-2 flex flex-col gap-2'>
+                    <div className=' mt-2 flex flex-col gap-3'>
                         <motion.div 
                             className=' flex gap-6 text-3xl font-semibold' 
                             initial={{ opacity: 0, y: -30 }}
@@ -40,7 +40,7 @@ export default function page() {
                     </div>
                     <motion.img
                         src={'/image/abc.png'}
-                        className=' max-w-[175px] max-h[100px]' 
+                        className=' mt-1 max-w-[175px] max-h[100px]' 
                         initial={{ opacity: 0, x: -40 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1.2 }}
