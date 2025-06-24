@@ -47,7 +47,7 @@ export default function Navbar() {
 
     return (
         <div className={`w-full px-[5%] py-6  flex justify-between items-center ${bg ? "": "bg-gray-200 dark:bg-gray-800"}`}>
-            <div className="text-3xl font-bold text-blue-600 dark:text-blue-500">Logo</div>
+            <Link href="/"><div className="text-3xl font-bold text-blue-600 dark:text-blue-500 cursor-pointer">Logo</div></Link>
 
             <div className="hidden md:block">
                 <ul className="flex items-center gap-10 text-xl font-semibold">

@@ -44,7 +44,7 @@ export default function page() {
                         initial={{ opacity: 0, x: -40 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1.2 }}
-                        viewport={{ once: true, amount: 0.4 }}
+                        viewport={{ once: true, amount: 0.8 }}
                     />
                 </div>
                 <div className=' order-1 md:order-2 flex justify-center items-center'>
