@@ -35,10 +35,12 @@ export default function ResponsiveMenu({ showMenu, onClose }) {
 
     return (
         <div
-            className={`fixed bottom-0 top-0 z-20 flex h-screen w-[75%] flex-col justify-start bg-slate-950 px-8 pb-6 pt-24 text-white transition-all duration-200 md:hidden ${
+            className={`fixed bottom-0 top-0 z-50 flex h-screen w-[75%] flex-col justify-start bg-slate-950 px-8 pb-6 pt-6 text-white transition-all duration-200 md:hidden ${
                 showMenu ? "left-0" : "-left-[100%]"
             }`}
         >
+            <Link href="/"><div className=" w-full text-center text-3xl font-bold text-blue-600 dark:text-blue-500 cursor-pointer py-12">Logo</div></Link>
+        
             <ul className="flex flex-col gap-6 text-xl font-semibold">
                 {menuItems.map((item) => {
                     if (item.label === "Services") {
